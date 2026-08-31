@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rimba Kriya — Mebel & Kaca Custom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  /* ============ TOKEN WARNA & TIPOGRAFI ============ */
+  :root{
+    --walnut-deep: #241a12;
+    --walnut: #3a2a1c;
+    --oak: #a97b4a;
+    --brass: #b98a4f;
+    --moss: #56624a;
+    --moss-deep: #3c4534;
+    --linen: #e7e0d2;
+    --linen-card: #f4efe4;
+    --paper: #faf7f0;
+    --ink: #241d15;
+    --ink-soft: #5c5142;
+    --line: rgba(36,26,18,0.14);
+
+    --font-display: "Fraunces", serif;
+    --font-body: "Work Sans", sans-serif;
+
+    --radius-s: 4px;
+    --radius-m: 10px;
+    --maxw: 1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--linen);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;margin:0;padding:0;}
+  h1,h2,h3{font-family:var(--font-display);color:var(--walnut-deep);margin:0;font-weight:600;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  section{padding:96px 0;}
+  .eyebrow{
+    font-family:var(--font-body);
+    font-size:14px;
+    color:var(--oak);
+    font-weight:600;
+    margin:0 0 12px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:var(--radius-s);
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:15px;
+    border:1.5px solid transparent;
+    cursor:pointer;
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .btn-primary{background:var(--walnut-deep);color:var(--paper);}
+  .btn-primary:hover{background:var(--moss-deep);}
+  .btn-ghost{border-color:var(--walnut-deep);color:var(--walnut-deep);background:transparent;}
+  .btn-ghost:hover{background:var(--walnut-deep);color:var(--paper);}
+
+  /* ============ HEADER ============ */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(231,224,210,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:var(--maxw);margin:0 auto;padding:18px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--font-display);
+    font-size:22px;font-weight:600;color:var(--walnut-deep);
+    display:flex;align-items:center;gap:10px;
+  }
+  .logo span{color:var(--oak);}
+  .nav-links{display:flex;gap:34px;}
+  .nav-links a{font-size:15px;font-weight:500;color:var(--ink-soft);transition:color .15s ease;}
+  .nav-links a:hover{color:var(--walnut-deep);}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+  .menu-toggle{
+    display:none;background:none;border:none;cursor:pointer;
+    width:32px;height:24px;position:relative;
+  }
+  .menu-toggle span{
+    position:absolute;left:0;right:0;height:2px;background:var(--walnut-deep);
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .menu-toggle span:nth-child(1){top:0;}
+  .menu-toggle span:nth-child(2){top:11px;}
+  .menu-toggle span:nth-child(3){top:22px;}
+  .menu-toggle.open span:nth-child(1){transform:translateY(11px) rotate(45deg);}
+  .menu-toggle.open span:nth-child(2){opacity:0;}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-11px) rotate(-45deg);}
+
+  /* ============ HERO ============ */
+  .hero{
+    padding:88px 0 60px;
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(36px,4.6vw,58px);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    max-width:15ch;
+  }
+  .hero p{
+    margin:22px 0 32px;
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-stats{
+    display:flex;gap:36px;margin-top:44px;padding-top:28px;border-top:1px solid var(--line);
+  }
+  .hero-stats div strong{
+    display:block;font-family:var(--font-display);font-size:26px;color:var(--walnut-deep);
+  }
+  .hero-stats div span{font-size:13px;color:var(--ink-soft);}
+
+  .hero-art{
+    background:linear-gradient(160deg,var(--walnut) 0%, var(--walnut-deep) 100%);
+    border-radius:var(--radius-m);
+    padding:34px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-art svg{width:100%;height:auto;}
+
+  /* ============ MARQUEE STRIP ============ */
+  .strip{
+    background:var(--walnut-deep);color:var(--linen-card);
+    padding:16px 0;overflow:hidden;white-space:nowrap;
+  }
+  .strip-track{
+    display:inline-flex;gap:48px;
+    font-family:var(--font-display);
+    font-size:15px;
+    letter-spacing:.02em;
+    animation:scroll-left 26s linear infinite;
+  }
+  .strip-track span{color:var(--oak);margin-right:10px;}
+  @keyframes scroll-left{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  /* ============ KATALOG ============ */
+  .cat-head{max-width:640px;margin-bottom:52px;}
+  .cat-head h2{font-size:clamp(28px,3vw,40px);}
+  .cat-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .cat-card{
+    background:var(--linen-card);
+    border:1px solid var(--line);
+    border-radius:var(--radius-m);
+    padding:28px;
+    transition:border-color .15s ease;
+  }
+  .cat-card:hover{border-color:var(--oak);}
+  .cat-icon{
+    width:46px;height:46px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--linen);
+    border-radius:var(--radius-s);
+    margin-bottom:22px;
+  }
+  .cat-icon svg{width:24px;height:24px;stroke:var(--walnut-deep);}
+  .cat-card h3{font-size:20px;margin-bottom:8px;}
+  .cat-card p{font-size:14.5px;color:var(--ink-soft);margin:0 0 18px;}
+  .cat-foot{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;border-top:1px solid var(--line);
+    font-size:14px;
+  }
+  .cat-foot .price{font-weight:600;color:var(--walnut-deep);}
+  .cat-foot a{color:var(--oak);font-weight:600;}
+  .cat-foot a:hover{text-decoration:underline;}
+
+  /* ============ PROSES ============ */
+  .proses{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .proses-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    margin-top:52px;position:relative;
+  }
+  .proses-step{
+    padding:0 24px 0 0;
+    border-right:1px solid var(--line);
+  }
+  .proses-step:last-child{border-right:none;padding-right:0;}
+  .proses-num{
+    font-family:var(--font-display);
+    font-size:15px;color:var(--oak);font-weight:600;
+    margin-bottom:18px;
+  }
+  .proses-step h3{font-size:18px;margin-bottom:10px;}
+  .proses-step p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+
+  /* ============ KENAPA ============ */
+  .kenapa{
+    display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:start;
+  }
+  .kenapa h2{font-size:clamp(26px,3vw,36px);max-width:11ch;}
+  .kenapa-list{display:flex;flex-direction:column;gap:0;}
+  .kenapa-item{
+    display:flex;gap:20px;padding:24px 0;border-top:1px solid var(--line);
+  }
+  .kenapa-item:last-child{border-bottom:1px solid var(--line);}
+  .kenapa-item .k-icon{
+    flex-shrink:0;width:38px;height:38px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--moss);border-radius:50%;
+  }
+  .kenapa-item .k-icon svg{width:18px;height:18px;stroke:var(--paper);}
+  .kenapa-item h3{font-size:17px;margin-bottom:6px;}
+  .kenapa-item p{font-size:14.5px;color:var(--ink-soft);margin:0;max-width:52ch;}
+
+  /* ============ TESTIMONI ============ */
+  .testi{background:var(--walnut-deep);color:var(--linen-card);}
+  .testi-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;
+  }
+  .testi h2{color:var(--paper);}
+  .testi-eyebrow{color:var(--oak);}
+  .testi-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:var(--radius-m);
+    padding:26px;
+  }
+  .testi-card p{font-size:15px;line-height:1.7;margin:0 0 20px;color:var(--linen-card);}
+  .testi-name{font-weight:600;font-size:14.5px;}
+  .testi-role{font-size:13px;color:var(--oak);}
+
+  /* ============ PESAN / FORM ============ */
+  .pesan{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;
+  }
+  .pesan-info h2{font-size:clamp(26px,3vw,36px);max-width:12ch;}
+  .pesan-info p{color:var(--ink-soft);margin:18px 0 28px;max-width:42ch;}
+  .contact-line{
+    display:flex;align-items:center;gap:12px;padding:14px 0;border-top:1px solid var(--line);font-size:15px;
+  }
+  .contact-line:last-child{border-bottom:1px solid var(--line);}
+  .contact-line svg{width:18px;height:18px;stroke:var(--oak);flex-shrink:0;}
+
+  .form-card{
+    background:var(--linen-card);
+    border:1px solid var(--line);
+    border-radius:var(--radius-m);
+    padding:36px;
+  }
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+  .field label{font-size:13.5px;font-weight:600;color:var(--walnut-deep);}
+  .field input, .field select, .field textarea{
+    font-family:var(--font-body);
+    font-size:15px;
+    padding:12px 14px;
+    border:1.5px solid var(--line);
+    border-radius:var(--radius-s);
+    background:var(--paper);
+    color:var(--ink);
+    outline:none;
+    transition:border-color .15s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--oak);}
+  .field textarea{resize:vertical;min-height:90px;}
+  .dims{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+  .form-note{font-size:13px;color:var(--ink-soft);margin-top:14px;}
+  .form-msg{
+    margin-top:16px;padding:12px 16px;border-radius:var(--radius-s);
+    background:var(--moss);color:var(--paper);font-size:14px;display:none;
+  }
+  .form-msg.show{display:block;}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--walnut-deep);color:var(--linen-card);padding:64px 0 28px;}
+  .foot-grid{
+    display:grid;grid-template-columns:1.4fr 0.8fr 0.8fr 1fr;gap:40px;
+    padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .foot-logo{font-family:var(--font-display);font-size:22px;color:var(--paper);margin-bottom:14px;}
+  .foot-logo span{color:var(--oak);}
+  .foot-grid p{font-size:14px;color:rgba(250,247,240,0.65);max-width:32ch;}
+  .foot-col h4{font-size:14px;color:var(--paper);margin:0 0 16px;font-weight:600;}
+  .foot-col ul{display:flex;flex-direction:column;gap:10px;}
+  .foot-col a{font-size:14px;color:rgba(250,247,240,0.7);transition:color .15s ease;}
+  .foot-col a:hover{color:var(--oak);}
+  .foot-bottom{
+    display:flex;justify-content:space-between;align-items:center;padding-top:24px;
+    font-size:13px;color:rgba(250,247,240,0.5);flex-wrap:wrap;gap:10px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:920px){
+    .hero{grid-template-columns:1fr;}
+    .hero-art{order:-1;}
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+    .proses-grid{grid-template-columns:repeat(2,1fr);row-gap:36px;}
+    .proses-step{border-right:none;border-bottom:1px solid var(--line);padding-bottom:28px;}
+    .kenapa{grid-template-columns:1fr;}
+    .testi-grid{grid-template-columns:1fr;}
+    .pesan{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    section{padding:64px 0;}
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--linen);border-bottom:1px solid var(--line);
+      flex-direction:column;padding:20px 28px;gap:18px;
+      display:none;
+    }
+    .nav-links.open{display:flex;}
+    .menu-toggle{display:block;}
+    .nav-cta .btn-ghost{display:none;}
+    .cat-grid{grid-template-columns:1fr;}
+    .proses-grid{grid-template-columns:1fr;}
+    .form-row, .dims{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .hero-stats{gap:22px;}
+  }
+
+  /* Aksesibilitas: fokus keyboard terlihat jelas */
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--oak);outline-offset:2px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .strip-track{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">Rimba <span>Kriya</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#katalog">Katalog</a></li>
+      <li><a href="#proses">Proses</a></li>
+      <li><a href="#kenapa">Kenapa Kami</a></li>
+      <li><a href="#testimoni">Testimoni</a></li>
+      <li><a href="#pesan">Kontak</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#pesan" class="btn btn-ghost" style="padding:10px 20px;font-size:14px;">Pesan Sekarang</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap" style="display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;width:100%;">
+    <div>
+      <p class="eyebrow">Bengkel kayu & kaca sejak 2012</p>
+      <h1>Lemari, meja, dan kaca yang dipotong pas untuk ruangmu</h1>
+      <p>Kami mengukur langsung ke lokasi, lalu membuat lemari, jendela, kursi, meja, dan panel kaca sesuai bentuk ruangan — bukan ukuran pabrik yang dipaksakan muat.</p>
+      <div class="hero-actions">
+        <a href="#pesan" class="btn btn-primary">Konsultasi & Ukur Gratis</a>
+        <a href="#katalog" class="btn btn-ghost">Lihat Katalog</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>1.200+</strong><span>Unit dikerjakan</span></div>
+        <div><strong>14</strong><span>Tahun pengalaman</span></div>
+        <div><strong>2–3 mgg</strong><span>Waktu produksi</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- lemari -->
+        <rect x="30" y="60" width="140" height="230" rx="4" stroke="#e7e0d2" stroke-width="2"/>
+        <line x1="100" y1="60" x2="100" y2="290" stroke="#e7e0d2" stroke-width="1.5"/>
+        <circle cx="88" cy="170" r="3" fill="#b98a4f"/>
+        <circle cx="112" cy="170" r="3" fill="#b98a4f"/>
+        <!-- meja -->
+        <rect x="200" y="200" width="150" height="10" rx="2" fill="#b98a4f"/>
+        <line x1="212" y1="210" x2="212" y2="290" stroke="#e7e0d2" stroke-width="2"/>
+        <line x1="338" y1="210" x2="338" y2="290" stroke="#e7e0d2" stroke-width="2"/>
+        <!-- kursi -->
+        <rect x="255" y="150" width="46" height="46" rx="3" stroke="#e7e0d2" stroke-width="1.5"/>
+        <line x1="260" y1="196" x2="260" y2="200" stroke="#e7e0d2" stroke-width="2"/>
+        <line x1="296" y1="196" x2="296" y2="200" stroke="#e7e0d2" stroke-width="2"/>
+        <!-- jendela / kaca -->
+        <rect x="200" y="40" width="150" height="120" rx="4" stroke="#b98a4f" stroke-width="2"/>
+        <line x1="275" y1="40" x2="275" y2="160" stroke="#b98a4f" stroke-width="1.5"/>
+        <line x1="200" y1="100" x2="350" y2="100" stroke="#b98a4f" stroke-width="1.5"/>
+        <text x="30" y="330" fill="#e7e0d2" font-family="Fraunces, serif" font-size="17">Diukur, dipotong, dan dipasang</text>
+        <text x="30" y="352" fill="#a97b4a" font-family="Fraunces, serif" font-size="17">sesuai ruangmu.</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-track">
+    <span><span>✦</span>Lemari Custom</span>
+    <span><span>✦</span>Kaca & Cermin</span>
+    <span><span>✦</span>Jendela Kayu & Aluminium</span>
+    <span><span>✦</span>Kursi & Meja</span>
+    <span><span>✦</span>Rak Dinding</span>
+    <span><span>✦</span>Partisi Kaca</span>
+    <span><span>✦</span>Lemari Custom</span>
+    <span><span>✦</span>Kaca & Cermin</span>
+    <span><span>✦</span>Jendela Kayu & Aluminium</span>
+    <span><span>✦</span>Kursi & Meja</span>
+    <span><span>✦</span>Rak Dinding</span>
+    <span><span>✦</span>Partisi Kaca</span>
+  </div>
+</div>
+
+<section id="katalog">
+  <div class="wrap">
+    <div class="cat-head">
+      <p class="eyebrow">Katalog</p>
+      <h2>Enam kategori, ukuran dan material bebas kamu tentukan</h2>
+    </div>
+    <div class="cat-grid">
+
+      <div class="cat-card">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="12" y1="3" x2="12" y2="21"/><circle cx="9" cy="12" r="0.6" fill="#241a12"/><circle cx="15" cy="12" r="0.6" fill="#241a12"/></svg></div>
+        <h3>Lemari</h3>
+        <p>Lemari pakaian, lemari dapur, atau lemari built-in yang mengikuti sudut dan tinggi ruangan.</p>
+        <div class="cat-foot"><span class="price">Mulai Rp 2.800.000</span><a href="#pesan">Pesan →</a></div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="1"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
+        <h3>Kaca & Cermin</h3>
+        <p>Kaca partisi, tempered glass, hingga cermin rias dengan potongan presisi dan tepi yang dihaluskan.</p>
+        <div class="cat-foot"><span class="price">Mulai Rp 350.000/m²</span><a href="#pesan">Pesan →</a></div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
+        <h3>Jendela</h3>
+        <p>Jendela kayu solid atau bingkai aluminium, dengan pilihan kaca bening, es, atau riben.</p>
+        <div class="cat-foot"><span class="price">Mulai Rp 950.000</span><a href="#pesan">Pesan →</a></div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M6 4v9m12-9v9M6 13h12l-1.5 7h-9L6 13z"/></svg></div>
+        <h3>Kursi</h3>
+        <p>Kursi makan, kursi kerja, hingga bangku panjang dengan pilihan kayu jati, mahoni, atau pinus.</p>
+        <div class="cat-foot"><span class="price">Mulai Rp 650.000</span><a href="#pesan">Pesan →</a></div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><line x1="3" y1="7" x2="21" y2="7"/><line x1="6" y1="7" x2="6" y2="20"/><line x1="18" y1="7" x2="18" y2="20"/></svg></div>
+        <h3>Meja</h3>
+        <p>Meja makan, meja kerja, atau meja rapat dengan panjang dan bentuk permukaan sesuai pesanan.</p>
+        <div class="cat-foot"><span class="price">Mulai Rp 1.400.000</span><a href="#pesan">Pesan →</a></div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="14" x2="20" y2="14"/><line x1="4" y1="20" x2="20" y2="20"/></svg></div>
+        <h3>Rak & Lainnya</h3>
+        <p>Rak dinding, partisi ruangan, hingga furnitur khusus di luar kategori — ceritakan kebutuhanmu.</p>
+        <div class="cat-foot"><span class="price">Sesuai desain</span><a href="#pesan">Pesan →</a></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="proses" id="proses">
+  <div class="wrap">
+    <p class="eyebrow">Cara kerja</p>
+    <h2>Empat langkah dari survei sampai terpasang</h2>
+    <div class="proses-grid">
+      <div class="proses-step">
+        <div class="proses-num">01</div>
+        <h3>Konsultasi & ukur</h3>
+        <p>Tim kami datang mengukur ruangan, atau kamu kirim ukuran dan foto lewat form pemesanan.</p>
+      </div>
+      <div class="proses-step">
+        <div class="proses-num">02</div>
+        <h3>Desain & material</h3>
+        <p>Kami kirim sketsa dan pilihan material — jenis kayu, warna finishing, atau tipe kaca.</p>
+      </div>
+      <div class="proses-step">
+        <div class="proses-num">03</div>
+        <h3>Produksi</h3>
+        <p>Pengerjaan di bengkel memakan waktu 2–3 minggu tergantung ukuran dan tingkat kerumitan.</p>
+      </div>
+      <div class="proses-step">
+        <div class="proses-num">04</div>
+        <h3>Kirim & pasang</h3>
+        <p>Barang diantar dan dipasang langsung oleh tukang kami, termasuk perapian akhir di lokasi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kenapa">
+  <div class="wrap kenapa">
+    <div>
+      <p class="eyebrow">Kenapa Rimba Kriya</p>
+      <h2>Dibuat untuk dipakai puluhan tahun, bukan sampai musim hujan berikutnya</h2>
+    </div>
+    <div class="kenapa-list">
+      <div class="kenapa-item">
+        <div class="k-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg></div>
+        <div>
+          <h3>Kayu solid, bukan partikel</h3>
+          <p>Semua produk kayu memakai kayu solid atau plywood tebal, bukan particle board yang mudah lapuk kena lembap.</p>
+        </div>
+      </div>
+      <div class="kenapa-item">
+        <div class="k-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg></div>
+        <div>
+          <h3>Ukur ulang di lokasi, gratis</h3>
+          <p>Sebelum produksi dimulai, kami ukur ulang langsung di rumah atau kantormu supaya tidak ada selisih sentimeter.</p>
+        </div>
+      </div>
+      <div class="kenapa-item">
+        <div class="k-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg></div>
+        <div>
+          <h3>Garansi 2 tahun konstruksi</h3>
+          <p>Sambungan, engsel, dan rangka bergaransi dua tahun. Perbaikan di luar kerusakan pemakaian tidak dikenakan biaya.</p>
+        </div>
+      </div>
+      <div class="kenapa-item">
+        <div class="k-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 13l4 4L19 7"/></svg></div>
+        <div>
+          <h3>Harga dikunci di awal</h3>
+          <p>Setelah desain disetujui, harga tidak berubah — termasuk bila ada revisi kecil ukuran sebelum produksi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi" id="testimoni">
+  <div class="wrap">
+    <p class="eyebrow testi-eyebrow">Testimoni</p>
+    <h2>Kata mereka yang sudah pesan</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p>"Lemari dapur saya bentuknya L dan agak sempit, tapi hasilnya pas banget sampai ke sudut. Timnya juga sabar waktu saya minta ubah posisi rak dua kali."</p>
+        <div class="testi-name">Ratna Wulandari</div>
+        <div class="testi-role">Pekanbaru</div>
+      </div>
+      <div class="testi-card">
+        <p>"Pesan kaca partisi kantor, tebalnya pas dan pemasangannya rapi, tidak ada bekas silikon berantakan di pinggir seperti tukang sebelumnya."</p>
+        <div class="testi-name">Dedi Kurniawan</div>
+        <div class="testi-role">Pemilik ruko</div>
+      </div>
+      <div class="testi-card">
+        <p>"Set meja dan kursi makan untuk 8 orang selesai tepat 18 hari sesuai janji. Kayu jati, kokoh, dan finishing-nya halus tidak meninggalkan bau cat menyengat."</p>
+        <div class="testi-name">Hendra Saputra</div>
+        <div class="testi-role">Rumbai</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pesan">
+  <div class="wrap pesan">
+    <div class="pesan-info">
+      <p class="eyebrow">Pesan</p>
+      <h2>Ceritakan kebutuhanmu, kami hubungi dalam 1x24 jam</h2>
+      <p>Isi form di samping selengkap mungkin. Semakin detail ukuran dan referensi yang kamu kasih, semakin cepat kami bisa kirim estimasi harga.</p>
+
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 5a2 2 0 012-2h3l2 5-2 1a11 11 0 006 6l1-2 5 2v3a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
+        <span>0857-6796-0389 (WhatsApp)</span>
+      </div>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+        <span>halo@rimbakriya.id</span>
+      </div>
+      <div class="contact-line">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="10" r="3"/><path d="M12 21s7-6.5 7-11a7 7 0 10-14 0c0 4.5 7 11 7 11z"/></svg>
+        <span>Jl. Riau Ujung No. 45, Pekanbaru</span>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <form id="orderForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="nama">Nama lengkap</label>
+            <input type="text" id="nama" required placeholder="Nama kamu">
+          </div>
+          <div class="field">
+            <label for="telp">Nomor WhatsApp</label>
+            <input type="tel" id="telp" required placeholder="08xx-xxxx-xxxx">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="produk">Jenis produk</label>
+          <select id="produk" required>
+            <option value="" disabled selected>Pilih jenis produk</option>
+            <option>Lemari</option>
+            <option>Kaca & Cermin</option>
+            <option>Jendela</option>
+            <option>Kursi</option>
+            <option>Meja</option>
+            <option>Rak / Lainnya</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Perkiraan ukuran (cm)</label>
+          <div class="dims">
+            <input type="number" id="p" placeholder="Panjang" min="0">
+            <input type="number" id="l" placeholder="Lebar" min="0">
+            <input type="number" id="t" placeholder="Tinggi" min="0">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="material">Preferensi material</label>
+          <select id="material">
+            <option value="" disabled selected>Pilih material (opsional)</option>
+            <option>Kayu jati</option>
+            <option>Kayu mahoni</option>
+            <option>Multipleks / plywood</option>
+            <option>Kaca bening</option>
+            <option>Kaca es / riben</option>
+            <option>Belum tahu, minta saran</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="catatan">Catatan tambahan</label>
+          <textarea id="catatan" placeholder="Ceritakan warna, referensi desain, atau lokasi pemasangan"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Kirim Pesanan via WhatsApp</button>
+        <p class="form-note">Mengklik tombol akan membuka WhatsApp dengan pesan yang sudah terisi otomatis dari form ini.</p>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Rimba <span>Kriya</span></div>
+        <p>Bengkel kayu dan kaca custom di Pekanbaru. Melayani pemesanan lemari, jendela, kursi, meja, dan kaca sejak 2012.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Produk</h4>
+        <ul>
+          <li><a href="#katalog">Lemari</a></li>
+          <li><a href="#katalog">Kaca & Cermin</a></li>
+          <li><a href="#katalog">Jendela</a></li>
+          <li><a href="#katalog">Kursi & Meja</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Perusahaan</h4>
+        <ul>
+          <li><a href="#proses">Cara kerja</a></li>
+          <li><a href="#kenapa">Kenapa kami</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Hubungi</h4>
+        <ul>
+          <li><a href="tel:+6281270001234">0812-7000-1234</a></li>
+          <li><a href="mailto:halo@rimbakriya.id">halo@rimbakriya.id</a></li>
+          <li><a href="#pesan">Isi form pemesanan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Rimba Kriya. Semua hak cipta dilindungi.</span>
+      <span>Dibuat dengan HTML & CSS</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Toggle menu mobile
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menuToggle.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+
+  // Form pemesanan -> kirim ke WhatsApp dengan pesan otomatis
+  const form = document.getElementById('orderForm');
+  const formMsg = document.getElementById('formMsg');
+  const NOMOR_WA = "6285767960389"; // ganti dengan nomor WhatsApp toko
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value.trim();
+    const telp = document.getElementById('telp').value.trim();
+    const produk = document.getElementById('produk').value;
+    const p = document.getElementById('p').value;
+    const l = document.getElementById('l').value;
+    const t = document.getElementById('t').value;
+    const material = document.getElementById('material').value;
+    const catatan = document.getElementById('catatan').value.trim();
+
+    let pesan = `Halo Rimba Kriya, saya ingin memesan:\n`;
+    pesan += `Nama: ${nama}\n`;
+    pesan += `No. WhatsApp: ${telp}\n`;
+    pesan += `Jenis produk: ${produk}\n`;
+    if(p || l || t){
+      pesan += `Ukuran (P x L x T): ${p || '-'} x ${l || '-'} x ${t || '-'} cm\n`;
+    }
+    if(material){
+      pesan += `Material: ${material}\n`;
+    }
+    if(catatan){
+      pesan += `Catatan: ${catatan}\n`;
+    }
+
+ const url = `https://wa.me/${NOMOR_WA}= "6285767960389"${encodeURIComponent(pesan)}`;
+
+    formMsg.textContent = "Membuka WhatsApp dengan detail pesananmu...";
+    formMsg.classList.add('show');
+
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
